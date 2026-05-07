@@ -935,6 +935,8 @@ MonoBehaviour:
     Regen: 1
   _range: 8
   _muzzle: {fileID: 0}
+  _projectilePrefab: {fileID: 1049341439100724012, guid: eb952490256f547998809022c88ed715, type: 3}
+  _projectileParent: {fileID: 114924931}
 --- !u!21 &1854624843
 Material:
   serializedVersion: 8
