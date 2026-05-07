@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 1839517314}
   - component: {fileID: 1839517316}
   - component: {fileID: 1839517315}
+  - component: {fileID: 1839517317}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -684,6 +685,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1839517317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839517313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079bc495e5d8a4131897897e729c576a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerController
+  _baseStats:
+    MaxHP: 100
+    Damage: 10
+    AttackSpeed: 1
+    Regen: 1
+  _range: 8
+  _muzzle: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
