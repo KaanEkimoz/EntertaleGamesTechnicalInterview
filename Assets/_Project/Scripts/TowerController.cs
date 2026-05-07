@@ -9,6 +9,8 @@ namespace Tower
         [SerializeField] private TowerStats _baseStats = TowerStats.Default;
         [SerializeField] private float _range = 8f;
         [SerializeField] private Transform _muzzle;
+        [SerializeField] private Projectile _projectilePrefab;
+        [SerializeField] private Transform _projectileParent;
 
         public event Action OnDied;
         public event Action<float> OnHealthChanged;
@@ -89,9 +91,17 @@ namespace Tower
 
         private void Fire(IDamageable target)
         {
-            // TODO Phase 2: spawn visible projectile. For now, hitscan damage.
-            Debug.Log($"[Tower] Fire → dmg {_runtimeStats.Damage}", this);
-            target.TakeDamage(_runtimeStats.Damage);
+            Vector3 origin = _muzzle != null ? _muzzle.position : transform.position;
+            if (_projectilePrefab != null)
+            {
+                var p = Instantiate(_projectilePrefab, origin, Quaternion.identity, _projectileParent);
+                p.Init(target, _runtimeStats.Damage);
+            }
+            else
+            {
+                Debug.Log($"[Tower] Fire (no projectile prefab) → dmg {_runtimeStats.Damage}", this);
+                target.TakeDamage(_runtimeStats.Damage);
+            }
         }
 
 #if UNITY_EDITOR
